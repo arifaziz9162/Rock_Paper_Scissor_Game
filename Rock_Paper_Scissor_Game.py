@@ -22,7 +22,6 @@ logger.addHandler(stream_handler)
 logger.addHandler(file_handler)
 
 
-
 class RockPaperScissorsGame:
     CHOICES = ["Rock", "Paper", "Scissor"]
 
@@ -31,17 +30,14 @@ class RockPaperScissorsGame:
         self.user_score = 0
         self.comp_score = 0
 
-
     def get_computer_choice(self):
         return random.choice(self.CHOICES)
-
 
     def get_user_choice(self):
         choice = input("Enter your move (Rock, Paper, Scissor): ").title()
         if choice not in self.CHOICES:
             raise ValueError("Invalid choice. Choose Rock, Paper, or Scissor.")
         return choice
-
 
     def decide_winner(self, user, comp):
         if user == comp:
@@ -52,7 +48,6 @@ class RockPaperScissorsGame:
             return "User"
         else:
             return "Computer"
-
 
     def play_round(self):
         try:
@@ -84,7 +79,6 @@ class RockPaperScissorsGame:
             logger.error(f"Something went wrong please try again : {e}")
             print(str(e))
        
-
     def play_game(self):
         for round_num in range(1, self.rounds + 1):
             print(f"\n--- Round {round_num} ---")
@@ -93,7 +87,6 @@ class RockPaperScissorsGame:
             print(f"Score => You: {self.user_score} | Computer: {self.comp_score}")
 
         self.show_final_result()
-
 
     def show_final_result(self):
         print("\n=== Final Result ===")
@@ -105,7 +98,6 @@ class RockPaperScissorsGame:
             print("🤝 It's a tie overall!")
 
         logger.info(f"Final Score => You: {self.user_score}, Computer: {self.comp_score}")
-
 
 def main():
         while True:
